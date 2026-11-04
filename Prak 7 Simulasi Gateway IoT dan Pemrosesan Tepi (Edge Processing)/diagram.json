@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "vana 55",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 67.2, "left": 110.44, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 34.8,
+      "left": 282.2,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -134.1, "left": -283.8, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -124.3, "left": -175.5, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -106.9, "left": -413, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v364.8", "h259.2", "h124.65" ] ],
+    [ "dht1:SDA", "esp:15", "gold", [ "v364.8", "h384.1", "h86.4" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v364.8", "h230.4", "h124.65" ] ],
+    [ "ultrasonic1:TRIG", "esp:5", "#8f4814", [ "v375.4", "h305.4", "v-163.2" ] ],
+    [ "ultrasonic1:ECHO", "esp:18", "gold", [ "v375.4", "h295.4", "v-172.8" ] ],
+    [ "ultrasonic1:VCC", "esp:5V", "red", [ "v375.4", "h219.4", "v-76.8" ] ],
+    [ "ultrasonic1:GND", "esp:GND.1", "black", [ "v375.4", "h189.4", "v-124.8" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "h-0.8", "v384", "h279.2", "h200.65" ] ],
+    [ "pot1:SIG", "esp:34", "orange", [ "h-0.4", "v384", "h278.8", "h210.65" ] ],
+    [ "pot1:GND", "esp:GND.1", "black", [ "v384", "h499.05" ] ],
+    [ "led1:A", "esp:2", "red", [ "v144", "h-96" ] ],
+    [ "esp:GND.3", "led1:C", "black", [ "v67.2", "h79.2" ] ]
+  ],
+  "dependencies": {}
+}
